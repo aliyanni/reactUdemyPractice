@@ -2,41 +2,43 @@ import React from "react";
 import ReactDom from "react-dom";
 import "./index.css";
 
+const firstBook = {
+  img: "https://images-na.ssl-images-amazon.com/images/I/81S+-1xB4WL._AC_UL210_SR195,210_.jpg",
+  title: "From Crook to Cook",
+  author: "Snoop Dogg",
+};
+
+const secondBook = {
+  img: "https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL210_SR195,210_.jpg",
+  title: "Atomic Habits",
+  author: "James Clear",
+};
+
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
     </section>
   );
 }
 
-const Book = () => {
+const Book = (props) => {
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img src={props.img} alt="" />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
     </article>
   );
 };
-
-const Image = () => (
-  <img
-    src="https://images-na.ssl-images-amazon.com/images/I/81S+-1xB4WL._AC_UL210_SR195,210_.jpg"
-    alt=""
-  />
-);
-
-const Title = () => <h1>From Crook to Cook</h1>;
-
-const Author = () => <h4>Snoop Dogg</h4>;
 
 ReactDom.render(<BookList />, document.getElementById("root"));
