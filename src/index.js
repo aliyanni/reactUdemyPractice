@@ -1,8 +1,11 @@
 import React from "react";
-import ReactDom from "react-dom";
+import { createRoot } from "react-dom/client";
 import { books } from "./Books";
 import Book from "./Book";
 import "./index.css";
+
+const container = document.getElementById("root");
+const root = createRoot(container);
 
 function BookList() {
   return (
@@ -14,4 +17,4 @@ function BookList() {
   );
 }
 
-ReactDom.render(<BookList />, document.getElementById("root"));
+root.render(<BookList />);
